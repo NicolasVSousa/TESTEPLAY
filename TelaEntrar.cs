@@ -62,5 +62,10 @@ namespace TESTEPLAY
                 MessageBox.Show("Login ou senha inválidos!");
             }
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '*';
+        }
     }
 }

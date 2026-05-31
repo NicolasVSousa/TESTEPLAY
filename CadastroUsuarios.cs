@@ -35,6 +35,30 @@ namespace TESTEPLAY
         {
             SqlConnection conn = new SqlConnection(conexao);
 
+
+            string verifica = "SELECT COUNT(*) FROM Usuarios WHERE Login = @Login";
+
+            SqlCommand cmdVerifica = new SqlCommand(verifica, conn);
+
+            cmdVerifica.Parameters.AddWithValue("@Login", textBox2.Text);
+
+            conn.Open();
+
+            int existe = (int)cmdVerifica.ExecuteScalar();
+
+            if (existe > 0)
+            {
+                MessageBox.Show("Este login já está cadastrado!");
+
+                conn.Close();
+
+                return;
+            }
+
+            conn.Close();
+
+
+
             string sql = "INSERT INTO Usuarios (Nome, Login, SenhaUsuario) VALUES (@Nome, @Login, @SenhaUsuario)";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
