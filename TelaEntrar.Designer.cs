@@ -94,6 +94,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "TelaEntrar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaEntrar";
             this.ResumeLayout(false);
             this.PerformLayout();
