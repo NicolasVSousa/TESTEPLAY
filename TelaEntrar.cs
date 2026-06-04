@@ -51,9 +51,9 @@ namespace TESTEPLAY
             {
                 MessageBox.Show("Login realizado com sucesso!");
 
-                Form1 sistema = new Form1();
+                MenuPrincipal menu = new MenuPrincipal();
 
-                sistema.Show();
+                menu.Show();
 
                 this.Hide();
             }
