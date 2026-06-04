@@ -67,17 +67,28 @@ namespace TESTEPLAY
             cmd.Parameters.AddWithValue("@Login", textBox2.Text);
             cmd.Parameters.AddWithValue("@SenhaUsuario", textBox3.Text);
 
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                conn.Open();
 
+                cmd.ExecuteNonQuery();
 
-            MessageBox.Show(
-                "Salvo com sucesso!",
-                "Sistema",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-    );
+                MessageBox.Show("Salvo com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ocorreu um erro:\n" + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+            finally
+            {
+                conn.Close();
+            }
+
 
         }
 
